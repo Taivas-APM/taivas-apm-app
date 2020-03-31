@@ -29,13 +29,17 @@ export default {
         this.$store.commit('auth/setToken', data.token)
         this.$router.push('/')
       }).catch(err => {
-        let message = 'An unknown error occured'
+        let message = 'An unknown error occured, check your backend logs'
         if (err.status === 404) {
           message = 'I could not talk with the backend, check the url'
         }
         if (err.status === 403) {
           message = 'I could not log you in, check your email/password'
+          if (err.message) {
+            message = err.message
+          }
         }
+
         this.$q.notify(message)
       })
     },

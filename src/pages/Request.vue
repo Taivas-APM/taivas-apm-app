@@ -70,7 +70,7 @@ export default {
     return {
       request: null,
       pagination: {
-        rowsPerPage: 10,
+        rowsPerPage: 30,
       },
       columns: [
         {

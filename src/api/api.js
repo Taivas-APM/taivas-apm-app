@@ -8,8 +8,19 @@ const api = {
       }).then(
         (response) => {
           if (!response.ok) {
-            this.handleResponseError(response)
-            reject(response)
+            response
+              .json()
+              .then((responseData) => {
+                let message = null
+                if (typeof responseData.message !== 'undefined') {
+                  message = responseData.message
+                }
+                reject({
+                  status: response.status,
+                  message: message,
+                })
+              })
+              .catch(reject)
             return
           }
           response
@@ -39,8 +50,20 @@ const api = {
       }).then(
         (response) => {
           if (!response.ok) {
-            this.handleResponseError(response)
-            reject(response)
+            response
+              .json()
+              .then((responseData) => {
+                console.log(response)
+                let message = null
+                if (typeof responseData.message !== 'undefined') {
+                  message = responseData.message
+                }
+                reject({
+                  status: response.status,
+                  message: message,
+                })
+              })
+              .catch(reject)
             return
           }
           response
@@ -49,8 +72,10 @@ const api = {
             .catch(reject)
         },
         (error) => {
-          this.handleConnectionError(error)
-          reject(error)
+          error
+            .text()
+            .then(reject)
+            .catch(reject)
         },
       )
     })
@@ -64,9 +89,6 @@ const api = {
     if (meta.token) {
       this.setToken(meta.token)
     }
-  },
-  handleConnectionError () {
-    // TODO: display error
   },
   getURL (path, params) {
     let parsedParams = ''

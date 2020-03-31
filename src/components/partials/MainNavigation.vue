@@ -9,6 +9,7 @@
     </q-item-label>
     <q-item
       clickable
+      exact
       to="/"
     >
       <q-item-section
@@ -19,6 +20,20 @@
 
       <q-item-section>
         <q-item-label>Dashboard</q-item-label>
+      </q-item-section>
+    </q-item>
+    <q-item
+      clickable
+      to="/requests"
+    >
+      <q-item-section
+        avatar
+      >
+        <q-icon name="view_headline" />
+      </q-item-section>
+
+      <q-item-section>
+        <q-item-label>Requests</q-item-label>
       </q-item-section>
     </q-item>
   </q-list>
