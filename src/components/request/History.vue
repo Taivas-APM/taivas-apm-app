@@ -1,5 +1,5 @@
 <template>
-  <vue-plotly :data="data" :layout="layout" :options="options"/>
+  <vue-plotly style="height: 380px" :data="data" :layout="layout" :options="options"/>
 </template>
 
 <script>
@@ -21,6 +21,7 @@ export default {
           font: {
             color: '#dddddd',
           },
+          orientation: 'h',
         },
         xaxis: {
           type: 'date',
@@ -49,7 +50,6 @@ export default {
           gridcolor: '#2f2f2f',
 
           titlefont: {
-            color: '#dddddd',
             size: 12,
           },
 
@@ -62,6 +62,14 @@ export default {
           title: 'Avg Memory Usage (MB)',
           overlaying: 'y',
           side: 'right',
+          titlefont: {
+            size: 12,
+          },
+
+          tickfont: {
+            color: '#757575',
+            size: 12,
+          },
         },
         colorway: ['#ef8830', '#4fb8fb', '#54fc86'],
       },
