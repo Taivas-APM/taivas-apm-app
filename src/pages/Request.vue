@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div v-if="request" class="header bg-grey-10">
-      <div class="header-content">
+    <div class="header bg-grey-10">
+      <div v-if="request" class="header-content">
         <div class="text-subtitle1 text-grey-7 q-mb-md">
           {{ request.url }}
         </div>
@@ -126,6 +126,7 @@ export default {
   .header {
     padding-bottom: 100px;
     padding-top: 10px;
+    min-height: 215px;
   }
 
   .header-content {

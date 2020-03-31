@@ -28,10 +28,7 @@ const api = {
             .then(resolve)
             .catch(reject)
         },
-        (error) => {
-          this.handleConnectionError(error)
-          reject(error)
-        },
+        reject,
       )
     })
   },
@@ -71,12 +68,7 @@ const api = {
             .then(resolve)
             .catch(reject)
         },
-        (error) => {
-          error
-            .text()
-            .then(reject)
-            .catch(reject)
-        },
+        reject,
       )
     })
   },
