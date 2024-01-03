@@ -16,7 +16,7 @@
     "@quasar/extras": "^1.0.0",
     "@statnett/vue-plotly": "^0.3.2",
     "deepmerge": "^4.2.2",
-    "plotly.js": "^1.52.3",
+    "plotly.js": "^2.25.2",
     "quasar": "^1.0.0"
   },
   "devDependencies": {
